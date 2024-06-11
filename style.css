@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+:root {
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Manrope";
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-grayish-blue);
+  height: 100dvh;
+}
+.card {
+  display: flex;
+  max-width: 50%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  gap: 1.5rem;
+  height: 30rem;
+  position: relative;
+}
+.card__image {
+  background-image: url("./images/drawers.jpg");
+  height: 100%;
+  width: 50%;
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px 0 0 10px;
+}
+.card__content {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 2.5rem;
+  width: 65%;
+  justify-content: space-between;
+}
+.card__heading {
+  font-size: 1rem;
+  color: var(--very-dark-grayish-blue);
+}
+.card__description {
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: var(--grayish-blue);
+  font-weight: 500;
+  text-align: left;
+}
+.card__profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card__author {
+  display: flex;
+  gap: 1.5rem;
+}
+.author__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.card__author > img {
+  width: 12%;
+  border-radius: 50px;
+}
+.author__name {
+  color: var(--very-dark-grayish-blue);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.article__post-date {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--grayish-blue);
+}
+.card__share {
+  background-color: var(--light-grayish-blue);
+  padding: 0.8rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.share-section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.share-section.shown {
+  opacity: 1;
+  display: flex;
+  position: absolute;
+  transform: translate(6rem, -10rem);
+  bottom: 10.5rem;
+  gap: 3rem;
+  background-color: var(--very-dark-grayish-blue);
+  justify-content: center;
+  width: 30%;
+  border-radius: 10px;
+  height: 5rem;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+.share-section.shown::after {
+  position: absolute;
+  content: "";
+  background-color: transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 0;
+  border-left: 30px solid transparent;
+  border-top: 30px solid var(--very-dark-grayish-blue);
+  transform: translate(5%, 120%);
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.facebook {
+  background-image: url("images/icon-facebook.svg");
+}
+.twitter {
+  background-image: url("images/icon-twitter.svg");
+}
+.pinterest {
+  background-image: url("images/icon-pinterest.svg");
+}
+.facebook,
+.twitter,
+.pinterest {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.share-link {
+  text-transform: uppercase;
+  color: var(--grayish-blue);
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+.hidden-share-btn {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    max-width: 60rem;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    margin: 0 2rem;
+    height: 70%;
+    position: relative;
+  }
+  .card__image {
+    background-image: url("./images/drawers.jpg");
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    border-radius: 0;
+  }
+  .card__content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .share-section.shown {
+    display: flex;
+    position: absolute;
+    transform: translate(0, 0);
+    bottom: 10.5rem;
+    gap: 3rem;
+    background-color: var(--very-dark-grayish-blue);
+    justify-content: flex-start;
+    padding: 3rem;
+    font-size: 1.5rem;
+    width: 100%;
+    border-radius: 10px;
+    height: 8rem;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.3);
+  }
+  .share-section.shown::after {
+    z-index: 100;
+    border: 0;
+    position: absolute;
+    top: 50%;
+    width: 4rem;
+    height: 4rem;
+    right: 2rem;
+    transform: translate(0, -50%);
+    background-image: url("images/icon-share.svg");
+    background-color: var(--light-grayish-blue);
+    background-position: center;
+    padding: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+  }
+  .social-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .card__author > img {
+    width: 15%;
+  }
+}
